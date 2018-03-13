@@ -1,5 +1,5 @@
 
-Define: Given the user opens the homepage
+Define: the user opens the homepage
     NavigateTo https://www.prodigygame.com
 
 Define: When the user clicks the '<text>' button
@@ -17,7 +17,7 @@ Define: And the user clicks the '<linkText>' link
 Define: When the user chooses the '<option>' tab
    FindByTag "label" containing text "<option>"
 
-Define: And the user chooses the '<option>' tab
+Define: the user chooses the '<option>' tab
    FindByTag "label" containing text "<option>"
 
 Define: When the user enters '<value>' as Full Name
@@ -26,8 +26,8 @@ Define: When the user enters '<value>' as Full Name
 Define: And the user enters '<value>' as Full Name
    ClearAndSendKeys "<value>" to id register-name
 
-Define: When the user enters '<value>' as Email
-   ClearAndSendKeys "<value>" to id email
+Define: When the user enters '<value>' as '<textbox>'
+   ClearAndSendKeys "<value>" to id <id>
 
 Define: And the user enters '<value>' as Email
    ClearAndSendKeys "<value>" to id email
@@ -38,12 +38,44 @@ Define: When the user enters '<value>' as Password
 Define: And the user enters '<value>' as Password
    ClearAndSendKeys "<value>" to id password
 
-Define: Given the teacher with email '<email>' and '<password>' is logged in
-   NavigateTo https://www.prodigygame.org
+Define: Given the teacher '<fullname>' with email '<email>' and password '<password>' is logged in
+   NavigateTo https://www.prodigygame.com
    ClickLink "Login"
    ClearAndSendKeys "<email>" to id login-username
    ClearAndSendKeys "<password>" to id login-password
    ClickButton containing "Login"
+   ClickButton containing "View class"
+   ClickLink "Planner"
+   ClickButton containing "Create alignment"
+   FindByCssClass "align-prodigy-card__option-subtext"
+   ClickWhenClickable
+   ClickButton containing "Continue"
+   FindByCssClass "js-topic-name" containing text "Addition to 20"
+   ClickWhenClickable
+   FindByCssClass "js-skill-name" containing text "Add 1-digit numbers up to 18"
+   ClickWhenClickable
+   ClickButton containing "Next"
+   ClickButton containing "Next"
+   ClickButton containing "Next"
+   FindByCssClass "overlay-mask"
+   AssertCurrentElement is invisible
+   FindByCssClass "calendar__day-number--current"
+   ClickWhenClickable
+   ClickWhenClickable
+   FindByCssClass "js-create-assignment" containing text "Create"
+   ClickWhenClickable
+   WaitFor 3000
+
+Define: When the user '<fullname>' updates their Full Name and Password
+   FindByTag "span" containing text "<fullname>"
+   ClickWhenClickable
+   FindByCssClass "js-menu-link" containing text "Account"
+   ClickWhenClickable
+   FindByCssClass "card__header" containing text "General Settings"
+   AssertCurrentElement is visible
+   FindByCssClass "subnavigation__list-item" containing text "Change Password"
+   ClickWhenClickable
+
 
 Define: When I play the game
    NavigateTo https://www.prodigygame.org/play
@@ -69,7 +101,7 @@ Define: When I play the game
    Click
    FindByCssClass "go-button"
    Click
-   WaitFor 1000
+   WaitFor 3000
 
 # Vanilla steps below
 

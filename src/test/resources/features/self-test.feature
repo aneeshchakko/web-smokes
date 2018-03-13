@@ -6,5 +6,6 @@ Feature: A feature to self test the webdriver substeps implementations
 # expected, but not fail when expected
 
 Scenario: Verify Teacher Account Settings
-    When I play the game
+    Given the teacher 'Aneesh Chakko' with email 'aneesh.chakko+automation@prodigygame.com' and password 'test' is logged in
+
 
