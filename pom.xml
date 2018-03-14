@@ -159,7 +159,7 @@
 
 	<profiles>
 
-		<!-- In this example, the running of the acceptance tests is defined within 
+		<!-- In this example, the running of the acceptance tests is defined within
 			a profile, during the integration-test phase of the maven build.
 			See the substeps-runner documentation for more details. -->
 
@@ -206,10 +206,10 @@
 
 						<dependencies>
 
-							<!-- NB. The plugin uses all test dependencies defined in this project, 
-								as it's own so there is no need to list separately. The exception is an slf4j 
-								logging implementation, which is required before other dependencies have 
-								been added. This logger is included as an example, it can be replaced with 
+							<!-- NB. The plugin uses all test dependencies defined in this project,
+								as it's own so there is no need to list separately. The exception is an slf4j
+								logging implementation, which is required before other dependencies have
+								been added. This logger is included as an example, it can be replaced with
 								another slf4j logger of your choice. -->
 
 							<dependency>
