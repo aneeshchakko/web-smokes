@@ -32,6 +32,7 @@ Define: When the user enters '<value>' as '<textbox>'
 Define: And the user enters '<value>' as Email
    ClearAndSendKeys "<value>" to id email
 
+
 Define: When the user enters '<value>' as Password
    ClearAndSendKeys "<value>" to id password
 
